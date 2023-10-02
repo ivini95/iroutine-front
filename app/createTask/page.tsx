@@ -1,15 +1,17 @@
+import { Checkbox } from "../components/ui/checkbox"
+
 export default function CreateTask() {
     return (
-        <div>
-            <div>
-                <div>
-                    <div>D</div>
-                    <div>S</div>
-                    <div>T</div>
-                    <div>Q</div>
-                    <div>Q</div>
-                    <div>S</div>
-                    <div>S</div>
+        <div className="flex flex-col items-center justify-between h-screen">
+            <div className="flex flex-col items-center mt-28">
+                <div className="flex gap-3">
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1.5">D</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1.5">S</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1.5">T</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1">Q</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1">Q</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1.5">S</span></div>
+                    <div className="flex w-6 h-6 relative"><Checkbox className="absolute w-5 h-5"></Checkbox><span className="h-4 w-4 leading-6 ml-1.5">S</span></div>
                 </div>
                 <input type="text" name="description" id="description" placeholder="Descrição" />
                 <div>

@@ -1,11 +1,12 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Exo_2 } from 'next/font/google'
+import { League_Spartan } from 'next/font/google'
 import Header from './components/header'
+import { ThemeProvider } from './components/theme-provider'
 
-const Exo2 = Exo_2({ 
+const leagueSpartan = League_Spartan({ 
   subsets: ['latin'],
-  weight: ['400', '600'],
+  weight: ["400", "600"],
     
 })
 
@@ -20,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={Exo2.className}>
-        <Header/>
-        {children}
+    <html lang="pt-br">
+      <body className={leagueSpartan.className}>
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem disableTransitionOnChange>
+          <Header/>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
