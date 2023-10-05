@@ -1,13 +1,9 @@
-import { Button } from "../components/ui/button";
+import StopwatchContainer from "../components/stopWatch/stopWatchContainer";
 
 export default function Stopwatch() {
     return (
         <div className="flex flex-col justify-end items-center h-screen relative">
-            <div className="flex flex-col items-center justify-around p-4 h-80 w-64 absolute top-1/4">
-            <div>00 : 23 : 02</div>
-                <p>Description task</p>
-                <Button>Pause/Play</Button>
-            </div>
+            <StopwatchContainer/>
         </div>
     )
 }

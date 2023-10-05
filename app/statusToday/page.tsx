@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "../components/ui/button";
-import InfoStatusToday from "../components/statusTodayContainer/infoStatusToday";
+import InfoStatusToday from "../components/statusToday/infoStatusToday";
 
 export default function StatusToday() {
     return (

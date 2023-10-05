@@ -1,5 +1,5 @@
-import NavigateProfile from "../components/profileComponents/navigateProfile";
-import SalutionContainer from "../components/profileComponents/salutationContainer";
+import NavigateProfile from "../components/profile/navigateProfile";
+import SalutionContainer from "../components/profile/salutationContainer";
 
 
 export default function Home() {

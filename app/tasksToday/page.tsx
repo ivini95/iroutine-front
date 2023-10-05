@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "../components/ui/button";
 import { Checkbox } from "../components/ui/checkbox";
-import TasksTodayList from "../components/tasksTodayContainer/tasksTodayList";
+import TasksTodayList from "../components/tasksToday/tasksTodayList";
 
 export default function TasksToday() {
     return (
@@ -11,7 +11,6 @@ export default function TasksToday() {
                 <Link href={'/stopwatch'}><Button>CRONOMETRO</Button></Link>
                 <Link href={'/timer'}><Button>TEMPORIZADOR</Button></Link>
             </div>
-            
         </div>
     )
 }
