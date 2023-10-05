@@ -1,4 +1,4 @@
-import NavigateProfile from "@/app/components/profileComponents/navigateProfile"
+import NavigateProfile from "@/app/components/profile/navigateProfile"
 import {fireEvent, render, screen } from "@testing-library/react"
 import { useRouter } from "next/router"
 
@@ -12,4 +12,4 @@ describe('navigate profile', () => {
     })
 })
 
-//testar redirecionamento
+//testar botões

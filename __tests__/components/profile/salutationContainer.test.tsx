@@ -1,4 +1,4 @@
-import SalutionContainer from "@/app/components/profileComponents/salutationContainer"
+import SalutionContainer from "@/app/components/profile/salutationContainer"
 import { render, screen } from "@testing-library/react"
 
 describe('salutation Container', () => {

@@ -1,4 +1,4 @@
-import InfoStatusToday from "@/app/components/statusTodayContainer/infoStatusToday"
+import InfoStatusToday from "@/app/components/statusToday/infoStatusToday"
 import { render, screen } from "@testing-library/react"
 
 describe('info status today', () => {
@@ -19,3 +19,5 @@ describe('info status today', () => {
         expect(screen.getByText('03 : 10')).toBeInTheDocument()
     })
 })
+
+//testar botão
