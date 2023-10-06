@@ -1,10 +1,11 @@
+import Link from "next/link";
+import { Button } from "../ui/button";
+
 export default function ListTaskManagement() {
   return (
     <div>
       <p>Description task</p>
-      <button>
-        <img src="" alt="Edit task button" />
-      </button>
+      <Link href={'editTask'}><Button data-testid='editTask'></Button></Link>
     </div>
   );
 }

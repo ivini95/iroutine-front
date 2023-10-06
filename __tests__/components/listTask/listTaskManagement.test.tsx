@@ -1,7 +1,8 @@
-import TasksTodayList from '@/app/components/tasksToday/tasksTodayList';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ListTaskManagement from '@/app/components/listTask/listTaskManagement';
+import { fireEvent, getByText, render, screen } from '@testing-library/react';
+import mockRouter from 'next-router-mock';
+import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 describe('list tasks management', () => {
   it('should be defined', () => {
     render(<ListTaskManagement />);
@@ -10,4 +11,13 @@ describe('list tasks management', () => {
   });
 });
 
-//testar botão
+
+describe('list task redirect', () => {
+  it('should redirect to edit page when click button edit', () => {
+    render(<ListTaskManagement />, { wrapper: MemoryRouterProvider });
+
+    fireEvent.click(screen.getByTestId('editTask'));
+    expect(mockRouter.asPath).toEqual('/editTask');
+  });
+});
+
