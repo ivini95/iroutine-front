@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 
 export default function TasksTodayList() {
     return (
-        <div className="flex flex-col gap-2 h-80 mt-16">
+        <div className="flex flex-col gap-2 h-80 mt-24">
                 <div className="flex flex-col items-center justify-between w-72 h-28">
                     <div className="flex w-full justify-between p-1">
                         <Checkbox/>

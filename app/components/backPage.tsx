@@ -1,11 +1,16 @@
-import Link from "next/link";
+'use client'
+import { useRouter } from 'next/navigation';
+import { Button } from './ui/button';
+import { ArrowLeft } from 'lucide-react';
 
-export default function BackPage(){
-    return (
-        <div>
-            <Link href={'/'}><img src="" alt="theme icon" /></Link>
-            
-            <h2>Title page</h2>
-        </div>
-    )
+export default function BackPage() {
+  const router = useRouter();
+  return (
+    <div className='flex items-center w-full absolute top-12'>
+      <Button className='h-6 w-6 rounded-md ml-4' type="button" onClick={() => router.back()}>
+        <ArrowLeft />
+      </Button>
+      <h2 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>page tittle</h2>
+    </div>
+  );
 }
