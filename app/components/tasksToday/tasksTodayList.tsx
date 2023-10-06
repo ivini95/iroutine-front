@@ -13,7 +13,7 @@ export default function TasksTodayList() {
                     </div>
                     <div className="flex w-full items-center justify-between p-1">
                         <p>description of task</p>
-                        <Link href={'/task'}><Button className="w-16 h-8">Play/pause</Button></Link>
+                        <Link href={'/task'} data-testid="startTaskToday"><Button className="w-16 h-8">Play</Button></Link>
                     </div>
                 </div>
             </div>
