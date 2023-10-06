@@ -1,8 +1,7 @@
-import DateSelect from '@/app/components/createTask/dateSelect';
 import TypeOfTask from '@/app/components/createTask/typeOfTask';
 import { render, screen } from '@testing-library/react';
 
-describe('type of task', () => {
+describe('type of task from create task', () => {
   it('should be redirect type select task', () => {
     render(<TypeOfTask />);
 

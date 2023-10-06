@@ -2,7 +2,7 @@
 import WeekDaysSelect from '@/app/components/createTask/weekDaysSelect';
 import { render, screen } from '@testing-library/react';
 
-describe('week day select', () => {
+describe('week day select from create task', () => {
   it('should be redirect days of week checkbox', () => {
     render(<WeekDaysSelect/>);
 
