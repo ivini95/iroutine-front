@@ -2,7 +2,7 @@ import NavigateProfile from "../components/profile/navigateProfile";
 import SalutionContainer from "../components/profile/salutationContainer";
 
 
-export default function Home() {
+export default function Profile() {
   return (
     <main className="h-screen">
       <div className="flex flex-col items-center justify-center h-full gap-8">
