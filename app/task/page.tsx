@@ -8,7 +8,7 @@ export default function Task() {
         <div className="flex flex-col justify-end items-center h-screen relative">
             <BackPage/>
             <CurrentTask/>
-            <Link href={'tasksToday'}><Button className="mb-4" data-testid="completedTaskBtn">CONCLUIR</Button></Link>
+            <Link href={'tasksToday'}><Button className="h-16 w-40 font-semibold text-sm mb-4" data-testid="completedTaskBtn">CONCLUIR</Button></Link>
         </div>
     )
 }

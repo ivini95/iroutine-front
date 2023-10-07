@@ -6,7 +6,7 @@ export default function TypeOfTask() {
           <input type="checkbox" name="stopwatch" id="stopwatch" />
           <label className="mt-1" htmlFor="stopwatch">Cronometro</label>
         </div>
-        <input className="w-20 ml-7 pl-3 pt-0.5 rounded-2xl bg-transparent" type="time" name="stopwatchTime" id="stopwatchTime" />
+        <input className="w-full pl-3 pt-0.5 rounded-lg border bg-transparent" type="time" name="stopwatchTime" id="stopwatchTime" />
       </div>
       <div className="flex gap-4 items-center h-6 ">
         <input type="checkbox" name="timer" id="timer" />
