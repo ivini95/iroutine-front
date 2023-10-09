@@ -5,20 +5,18 @@ import { useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 
 export default function ChangePlayPauseButtonState() {
-    const [icon, setIcon] = useState(<Play size={14}/>)
+    const [icon, setIcon] = useState(<Play data-testid='play' size={14}/>)
     const [iconStatus, setIconStatus] = useState(true)
 
     function changeIcon(){
-        setIconStatus(!iconStatus)
-        console.log(iconStatus);
-        
+        setIconStatus(!iconStatus)       
     }
 
     useEffect(() => {
         if(iconStatus){
-            setIcon(<Play size={14}/>)
+            setIcon(<Play data-testid='play' size={14}/>)
         }else{
-            setIcon(<Pause size={14}/>)
+            setIcon(<Pause data-testid='pause' size={14}/>)
         }
     },[iconStatus])
 
