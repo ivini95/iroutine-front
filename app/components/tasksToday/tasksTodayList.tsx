@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Checkbox } from "../ui/checkbox";
 import { Button } from "../ui/button";
+import { Play } from "lucide-react";
 
 
 export default function TasksTodayList() {
@@ -10,7 +11,7 @@ export default function TasksTodayList() {
                     <div className="flex w-full justify-between items-center h-6 ">
                         <Checkbox/>
                         <div className="pt-2">00 : 30 : 00</div>
-                        <Link href={'/task'} data-testid="startTaskToday"><Button className='h-6 w-12 ml-4'>Play</Button></Link>
+                        <Link href={'/task'} data-testid="startTaskToday"><Button className='h-6 w-12 ml-4'><Play size={16}/></Button></Link>
                     </div>
                     <div className="flex w-full items-center justify-center p-1">
                         <p>description of task</p>
