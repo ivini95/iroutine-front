@@ -1,13 +1,15 @@
-version: '3.5'
-
-services:
+version: "3.8"
+services: 
   app:
+    container_name: iroutine-front
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: iroutine_front
-    ports:
-      - '3000:3000'
+    environment:
+      - NODE_ENV=development
     volumes:
-    - .:/app
-    - /app/node_modules
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
