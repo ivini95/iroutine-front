@@ -1,8 +1,7 @@
 version: '3.5'
 
-
 services:
-  iroutine-front:
+  iapp:
     build:
       context: .
       dockerfile: Dockerfile

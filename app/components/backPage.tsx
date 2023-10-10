@@ -2,9 +2,8 @@
 import { usePathname, useRouter,  } from 'next/navigation';
 import { Button } from './ui/button';
 import { ArrowLeft } from 'lucide-react';
-import { NextRequest } from 'next/server';
 
-export default function BackPage(request: NextRequest) {
+export default function BackPage() {
   const router = useRouter();
   let pathname = usePathname()
 
