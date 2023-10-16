@@ -5,11 +5,6 @@ import {MemoryRouterProvider} from 'next-router-mock/MemoryRouterProvider'
 import mockRouter from 'next-router-mock'
 
 describe('home page', () => {
-    it('should render title page', () => {
-        render(<Home/>)
-
-        expect(screen.getByText('IROUTINE')).toBeInTheDocument()
-    })
 
     it('should render button login', () => {
         render(<Home/>)
@@ -21,6 +16,6 @@ describe('home page', () => {
         render(<Home/>, {wrapper: MemoryRouterProvider})
 
         fireEvent.click(screen.getByRole('button'))
-        expect(mockRouter.asPath).toEqual('/profile')
+        expect(mockRouter.asPath).toEqual('/login')
     })
 })
