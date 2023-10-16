@@ -12,7 +12,7 @@ describe('home page', () => {
         expect(screen.getByRole('button')).toBeInTheDocument()
     })
 
-    it('should redirect to profile page', () => {
+    it('should redirect to login page', () => {
         render(<Home/>, {wrapper: MemoryRouterProvider})
 
         fireEvent.click(screen.getByRole('button'))
