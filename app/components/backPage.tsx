@@ -17,10 +17,10 @@ export default function BackPage() {
   
   return (
     <div className='flex items-center w-full absolute top-12'>
-      <Button className='h-6 w-12 ml-4' type="button" onClick={() => router.back()}>
+      <Button className='h-6 w-12 ml-4 shadow-tg' type="button" onClick={() => router.back()}>
         <ArrowLeft size={16}/>
       </Button>
-      <h2 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>{title}</h2>
+      <h2 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-semibold'>{title}</h2>
     </div>
   );
 }

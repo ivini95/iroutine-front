@@ -15,8 +15,8 @@ export default function EditTask() {
         <TypeOfTask />
         <DateSelect />
         <div className="flex justify-center gap-4 w-72 mb-4">
-          <Button className="h-16 w-40 font-semibold text-sm">Remover</Button>
-          <Button className="h-16 w-40 font-semibold text-sm">Concluir</Button>
+          <Button className="h-16 w-40 font-semibold text-sm shadow-tg">Remover</Button>
+          <Button className="h-16 w-40 font-semibold text-sm shadow-tg">Concluir</Button>
         </div>
       </div>
     </div>

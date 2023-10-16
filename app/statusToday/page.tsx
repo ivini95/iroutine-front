@@ -8,7 +8,7 @@ export default function StatusToday() {
         <div className="flex flex-col items-center justify-center h-screen gap-8">
             <BackPage/>
             <InfoStatusToday/>
-            <Link href={'tasksToday'}><Button className="h-16 w-40 font-semibold text-sm">TAREFAS</Button></Link>
+            <Link href={'tasksToday'}><Button className="h-16 w-40 font-semibold text-sm shadow-tg">TAREFAS</Button></Link>
         </div>
     )
 }

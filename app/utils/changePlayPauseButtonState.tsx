@@ -21,7 +21,7 @@ export default function ChangePlayPauseButtonState() {
     },[iconStatus])
 
     return (
-        <Button onClick={changeIcon} className='h-6 w-12'>{icon}</Button>
+        <Button onClick={changeIcon} className='h-6 w-12 bg-secondary shadow-tg hover:bg-secondary/80'>{icon}</Button>
     )
 }
 

@@ -10,8 +10,8 @@ export default function TasksToday() {
             <BackPage/>
             <TasksTodayList/>
             <div className="flex justify-center gap-4 w-72 mb-4">
-                <Link href={'/stopwatch'}><Button className="h-16 w-40 font-semibold text-sm">CRONOMETRO</Button></Link>
-                <Link href={'/timer'}><Button className="h-16 w-40 font-semibold text-sm">TEMPORIZADOR</Button></Link>
+                <Link href={'/stopwatch'}><Button className="h-16 w-40 font-semibold text-sm shadow-tg">CRONOMETRO</Button></Link>
+                <Link href={'/timer'}><Button className="h-16 w-40 font-semibold text-sm shadow-tg">TEMPORIZADOR</Button></Link>
             </div>
         </div>
     )

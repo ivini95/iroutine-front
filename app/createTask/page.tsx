@@ -14,7 +14,7 @@ export default function CreateTask() {
         <DescriptionTask />
         <TypeOfTask />
         <DateSelect />
-        <Button className="h-16 w-40 font-semibold text-sm">Criar</Button>
+        <Button className="h-16 w-40 font-semibold text-sm shadow-tg">Criar</Button>
       </div>
     </div>
   );
