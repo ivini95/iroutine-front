@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
-import { FormEvent, useState } from 'react';
+import { useState } from 'react';
 import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
-import { Router, Terminal } from 'lucide-react';
+import { Terminal } from 'lucide-react';
 import Cookie from 'js-cookie';
 import { useRouter } from 'next/navigation';
 
@@ -39,6 +39,7 @@ export default function Login() {
           setAlertMessage(data.message[0]);
         }
       } else {
+        Cookie.set('user_id', data.userId)
         Cookie.set('auth_token', data.accessToken)
         router.push('/profile')
       }
@@ -51,8 +52,6 @@ export default function Login() {
       setAlert(false);
     }, 3000);
     //redirecionar e salvar token
-
-    console.log(data);
   }
 
   return (
