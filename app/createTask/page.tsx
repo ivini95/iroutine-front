@@ -21,17 +21,15 @@ export default function CreateTask() {
     sat: false,
   }) 
 
-  useEffect(()=>{
-    console.log(daysSelected);
-    
-  },[daysSelected])
+  const [descriptionTask, setDescriptionTask] = useState('')
 
+  
   return (
     <div className="flex flex-col items-center h-screen">
       <div className="flex flex-col items-center mt-28 gap-8">
         <BackPage />
         <WeekDaysSelect setDaysSelected={setDaysSelected} daysSelected={daysSelected}/>
-        <DescriptionTask />
+        <DescriptionTask setDescriptionTask={setDescriptionTask}/>
         <TypeOfTask />
         <DateSelect />
         <Button className="h-16 w-40 font-semibold text-sm shadow-tg">Criar</Button>
