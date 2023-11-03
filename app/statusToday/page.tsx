@@ -39,6 +39,7 @@ export default function StatusToday() {
     router.push('/createTask')
   }
 
+
   return (
     tasks?.length < 1 ? (
         <div className="flex flex-col items-center justify-center h-screen">
@@ -47,7 +48,7 @@ export default function StatusToday() {
       ) : (
         <div className="flex flex-col items-center justify-center h-screen gap-8">
           <BackPage />
-          <InfoStatusToday />
+          <InfoStatusToday tasks={tasks}/>
           <Link href={'tasksToday'}>
             <Button className="h-16 w-40 font-semibold text-sm shadow-tg">
               TAREFAS

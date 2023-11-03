@@ -138,7 +138,7 @@ export default function CreateTask() {
       body: JSON.stringify(taskData),
     });
 
-    console.log(await res.json());
+    //console.log(await res.json());
   }
 
   useEffect(() => {
