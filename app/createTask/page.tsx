@@ -24,11 +24,20 @@ export default function CreateTask() {
   const [descriptionTask, setDescriptionTask] = useState('')
   const [typeTask, setTypeTask] = useState()
   const [timeStopwatch, setTimeStopwatch] = useState()
+  const [currentStartDate, setcurrentStartDate] = useState()
+  const [currentEndDate, setCurrentEndDate] = useState()
 
-  useEffect(()=> {
-    console.log(typeTask,timeStopwatch);
+  //data inicial não pode ser maior que data final
+  //deve possuir pelo menos um dia marcado
+  //deve possui descrição
+  //deve possui tipo selecionado
+  //caso tipo seja cronometro o tempo deve ser maior que zero
+
+  useEffect(()=>{
+    console.log(currentStartDate);
+    console.log(currentEndDate);
     
-  },[typeTask,timeStopwatch])
+  },[currentStartDate, currentEndDate])
 
   return (
     <div className="flex flex-col items-center h-screen">
@@ -37,7 +46,7 @@ export default function CreateTask() {
         <WeekDaysSelect setDaysSelected={setDaysSelected} daysSelected={daysSelected}/>
         <DescriptionTask setDescriptionTask={setDescriptionTask}/>
         <TypeOfTask setTypeTask={setTypeTask} setTimeStopwatch={setTimeStopwatch}/>
-        <DateSelect />
+        <DateSelect setcurrentStartDate={setcurrentStartDate} setCurrentEndDate={setCurrentEndDate}/>
         <Button className="h-16 w-40 font-semibold text-sm shadow-tg">Criar</Button>
       </div>
     </div>
