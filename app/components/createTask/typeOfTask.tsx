@@ -3,24 +3,23 @@ import { Checkbox } from "../ui/checkbox";
 
 export default function TypeOfTask(props: any) {
 
-  const [currentTimerState, setCurrentTimerState] = useState(false)
-  const [currentStopwatchState, setCurrentStopwatchState] = useState(false)
-  const [currentStopwatchTime, setCurrentStopwatchTime] = useState<any>('00:00')
+  
+  
 
   function changeTypeTaskSelect(checked : any, checkType: string){
     
     if(checkType === 'stopwatch'){
       if(checked){
-        setCurrentStopwatchState(true)
-        setCurrentTimerState(false)
+        props.setCurrentStopwatchState(true)
+        props.setCurrentTimerState(false)
    
         props.setTypeTask('stopwatch')
       }
     }else if(checkType === 'timer'){
       if(checked){
-        setCurrentTimerState(true)
-        setCurrentStopwatchState(false)
-        setCurrentStopwatchTime('00:00')
+        props.setCurrentTimerState(true)
+        props.setCurrentStopwatchState(false)
+        props.setCurrentStopwatchTime('00:00')
         props.setTypeTask('timer')
       }
   }
@@ -29,7 +28,7 @@ export default function TypeOfTask(props: any) {
 
   useEffect(() => {
 
-    const stringTask = currentStopwatchTime
+    const stringTask = props.currentStopwatchTime
     const splitStringTask = stringTask.split(':')
     const hourTaskString = splitStringTask[0]
     const minutesTaskString = splitStringTask[1]
@@ -40,7 +39,7 @@ export default function TypeOfTask(props: any) {
     
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[currentStopwatchTime])
+  },[props.currentStopwatchTime])
 
   
 
@@ -48,13 +47,13 @@ export default function TypeOfTask(props: any) {
     <div className="flex w-80 justify-between pr-4 pl-4">
       <div className="flex flex-col">
         <div className="flex gap-4 items-center">
-          <Checkbox checked={currentStopwatchState} id="stopwatch" onCheckedChange={(checked) => changeTypeTaskSelect(checked, 'stopwatch')}/>
+          <Checkbox checked={props.currentStopwatchState} id="stopwatch" onCheckedChange={(checked) => changeTypeTaskSelect(checked, 'stopwatch')}/>
           <label className="font-semibold text-sm" htmlFor="stopwatch">Cronometro</label>
         </div>
-        <input value={currentStopwatchTime} onChange={(e : any) => setCurrentStopwatchTime(e.target.value)} disabled={!currentStopwatchState} className="w-full pl-3 pt-0.5 rounded-lg border bg-transparent" type="time" name="stopwatchTime" id="stopwatchTime" />
+        <input value={props.currentStopwatchTime} onChange={(e : any) => props.setCurrentStopwatchTime(e.target.value)} disabled={!props.currentStopwatchState} className="w-full pl-3 pt-0.5 rounded-lg border bg-transparent" type="time" name="stopwatchTime" id="stopwatchTime" />
       </div>
       <div className="flex gap-4 items-center h-6 ">
-        <Checkbox checked={currentTimerState} id='timer' onCheckedChange={(checked) => changeTypeTaskSelect(checked, 'timer')}/>
+        <Checkbox checked={props.currentTimerState} id='timer' onCheckedChange={(checked) => changeTypeTaskSelect(checked, 'timer')}/>
         <label className="font-semibold text-sm"  htmlFor="timer">Temporizador</label>
       </div>
     </div>

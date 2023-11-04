@@ -9,12 +9,11 @@ import { format } from 'date-fns';
 import * as React from 'react';
 
 export default function DateSelect(props: any) {
-  const [startDate, setStartDate] = React.useState<Date>();
-  const [endDate, setEndDate] = React.useState<Date>();
+  
 
   function formatStartData() {
-    if(startDate){
-      const stringDate = startDate?.toString()
+    if(props.startDate){
+      const stringDate = props.startDate?.toString()
       const splitDate = stringDate?.split(' ')
       const year = splitDate?.slice(3, 4)
       const day = splitDate?.slice(2, 3)
@@ -67,8 +66,8 @@ export default function DateSelect(props: any) {
   }
 
   function formatEndData() {
-    if(endDate){
-      const stringDate = endDate?.toString()
+    if(props.endDate){
+      const stringDate = props.endDate?.toString()
       const splitDate = stringDate?.split(' ')
       const year = splitDate?.slice(3, 4)
       const day = splitDate?.slice(2, 3)
@@ -126,13 +125,13 @@ export default function DateSelect(props: any) {
 
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[startDate])
+  },[props.startDate])
 
   React.useEffect(() => {
     props.setCurrentEndDate(formatEndData())
     
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[endDate])
+  },[props.endDate])
 
   return (
     <>
@@ -142,18 +141,18 @@ export default function DateSelect(props: any) {
             variant={'outline'}
             className={cn(
               'w-[280px] justify-start text-left font-normal',
-              !startDate && 'text-muted-foreground',
+              !props.startDate && 'text-muted-foreground',
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
-            {startDate ? format(startDate, 'PPP') : <span>Data de Inicio</span>}
+            {props.startDate ? format(props.startDate, 'PPP') : <span>Data de Inicio</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
           <Calendar
             mode="single"
-            selected={startDate}
-            onSelect={setStartDate}
+            selected={props.startDate}
+            onSelect={props.setStartDate}
             initialFocus
           />
         </PopoverContent>
@@ -164,18 +163,18 @@ export default function DateSelect(props: any) {
             variant={'outline'}
             className={cn(
               'w-[280px] justify-start text-left font-normal',
-              !endDate && 'text-muted-foreground',
+              !props.endDate && 'text-muted-foreground',
             )}
           >
             <CalendarIcon className="mr-2 h-4 w-4" />
-            {endDate ? format(endDate, 'PPP') : <span>Data de Fim</span>}
+            {props.endDate ? format(props.endDate, 'PPP') : <span>Data de Fim</span>}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0">
           <Calendar
             mode="single"
-            selected={endDate}
-            onSelect={setEndDate}
+            selected={props.endDate}
+            onSelect={props.setEndDate}
             initialFocus
           />
         </PopoverContent>

@@ -10,8 +10,11 @@ import { Button } from '../components/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
 import { Terminal } from 'lucide-react';
 import Cookie from 'js-cookie';
+import { useRouter } from 'next/navigation';
 
 export default function CreateTask() {
+
+
   const [daysSelected, setDaysSelected] = useState<any>({
     sun: false,
     mon: false,
@@ -30,7 +33,15 @@ export default function CreateTask() {
   const [messageCreateTask, setMessageCreateTask] = useState<null | string>(
     null,
   );
+  const [titleMessageCreateTask, setTitleMessageCreateTask] = useState<null | string>(
+    null,
+  );
   const [dataTaskStatus, setDataTaskStatus] = useState(false);
+  const [currentTimerState, setCurrentTimerState] = useState(false)
+  const [currentStopwatchState, setCurrentStopwatchState] = useState(false)
+  const [currentStopwatchTime, setCurrentStopwatchTime] = useState<any>('00:00')
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
 
   //data inicial não pode ser maior que data final
   //deve possuir pelo menos um dia marcado
@@ -39,6 +50,7 @@ export default function CreateTask() {
   //caso tipo seja cronometro o tempo deve ser maior que zero
 
   function verifyCreateTaskData() {
+    setTitleMessageCreateTask('Não foi possivel criar tarefa!')
     let dayTrue = 0;
     let weekArray = Object.values(daysSelected);
     weekArray.forEach((day) => {
@@ -129,6 +141,8 @@ export default function CreateTask() {
   };
 
   async function postCreateTask() {
+    console.log('aqui');
+    
     const res = await fetch('http://localhost:3000/task', {
       method: 'POST',
       headers: {
@@ -137,24 +151,48 @@ export default function CreateTask() {
       },
       body: JSON.stringify(taskData),
     });
-
-    //console.log(await res.json());
+    
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    if(res.ok){
+      clearFields()
+    }
   }
 
   useEffect(() => {
+
+    
     if (dataTaskStatus) {
-      [postCreateTask()];
+      postCreateTask()
+      setTitleMessageCreateTask('Tarefa Criada')
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataTaskStatus]);
+
+  function clearFields(){
+    setDescriptionTask('')
+    setDaysSelected({
+      sun: false,
+      mon: false,
+      tue: false,
+      wed: false,
+      thu: false,
+      fri: false,
+      sat: false,
+    })
+    setCurrentStopwatchState(false)
+    setCurrentTimerState(false)
+    setCurrentStopwatchTime('00:00')
+    setStartDate(undefined)
+    setEndDate(undefined)
+  }
 
   return (
     <div className="flex flex-col items-center h-screen">
       {messageCreateTask ? (
         <Alert className="h6 w-72 absolute z-10 top-14 left-1/2 transform -translate-x-1/2 bg-background text-primary border-primary">
           <Terminal className="h-4 w-4" />
-          <AlertTitle>Não foi possivel criar tarefa!</AlertTitle>
-          <AlertDescription>{messageCreateTask}</AlertDescription>
+          <AlertTitle>{titleMessageCreateTask}</AlertTitle>
+          <AlertDescription className='text-secondary'>{messageCreateTask}</AlertDescription>
         </Alert>
       ) : (
         <></>
@@ -165,17 +203,26 @@ export default function CreateTask() {
           setDaysSelected={setDaysSelected}
           daysSelected={daysSelected}
         />
-        <DescriptionTask setDescriptionTask={setDescriptionTask} />
+        <DescriptionTask descriptionTask={descriptionTask} setDescriptionTask={setDescriptionTask} />
         <TypeOfTask
           setTypeTask={setTypeTask}
           setTimeStopwatch={setTimeStopwatch}
+          setCurrentTimerState={setCurrentTimerState}
+          setCurrentStopwatchState={setCurrentStopwatchState}
+          currentTimerState={currentTimerState}
+          currentStopwatchState={currentStopwatchState}
+          currentStopwatchTime={currentStopwatchTime}
+          setCurrentStopwatchTime={setCurrentStopwatchTime}
         />
         <DateSelect
           setcurrentStartDate={setcurrentStartDate}
           setCurrentEndDate={setCurrentEndDate}
+          startDate={startDate}
+          endDate={endDate}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
         />
-        <Button
-          onClick={verifyCreateTaskData}
+        <Button onClick={verifyCreateTaskData}
           className="h-16 w-40 font-semibold text-sm shadow-tg"
         >
           Criar

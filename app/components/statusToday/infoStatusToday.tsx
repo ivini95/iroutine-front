@@ -76,7 +76,6 @@ export default function InfoStatusToday(props: any) {
 
   const leftTimeFormated = currentSecondsToString(totalTimeTask - elapsedTime)
 
-  //tratar dados de tarefas e mostrar
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       <div className="bg-primary flex items-center p-2 justify-between h-20 w-80 rounded-lg shadow-tg text-sm">
