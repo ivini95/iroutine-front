@@ -141,7 +141,6 @@ export default function CreateTask() {
   };
 
   async function postCreateTask() {
-    console.log('aqui');
     
     const res = await fetch('http://localhost:3000/task', {
       method: 'POST',
@@ -155,6 +154,8 @@ export default function CreateTask() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     if(res.ok){
       clearFields()
+      setTitleMessageCreateTask('')
+      setMessageCreateTask('Tarefa Criada!!!')
     }
   }
 
@@ -163,7 +164,7 @@ export default function CreateTask() {
     
     if (dataTaskStatus) {
       postCreateTask()
-      setTitleMessageCreateTask('Tarefa Criada')
+      
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataTaskStatus]);

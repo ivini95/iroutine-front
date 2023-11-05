@@ -44,6 +44,9 @@ export default function InfoStatusToday(props: any) {
   if (props.tasks.length < 10) {
     totalTask = '0' + props.tasks.length;
     totalTaskCompleted = '0' + totalTaskCompleted;
+  }else {
+    totalTask = props.tasks.length;
+    totalTaskCompleted = totalTaskCompleted;
   }
 
   //formatar tempo total
