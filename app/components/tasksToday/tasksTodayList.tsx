@@ -1,24 +1,66 @@
-'use client'
+'use client';
 
 import Link from 'next/link';
 import { Checkbox } from '../ui/checkbox';
 import { Button } from '../ui/button';
 import { Play } from 'lucide-react';
+import { useState } from 'react';
+
 export default function TasksTodayList(props: any) {
 
-  console.log(props.tasks);
-  
+
+  const [tasks, setTasks] = useState()
+
+  function convertSecondstoTime(secondsTask: number) {
+    const dateObj = new Date(secondsTask * 1000);
+    const hours = dateObj.getUTCHours();
+    const minutes = dateObj.getUTCMinutes();
+    const seconds = dateObj.getSeconds();
+
+    const timeString =
+      hours.toString().padStart(2, '0') +
+      ':' +
+      minutes.toString().padStart(2, '0') +
+      ':' +
+      seconds.toString().padStart(2, '0');
+
+    return timeString;
+  }
   //verificar a data atual e retornar somente tasks de acordo com dia
-  //verificar o tipo da task, caso seja timer mostrar timer, caso contrario mostrar tempo
-  //tratar tempo
+  function compareTodayData(){
+    const date = new Date();
+    
+    props.tasks.forEach((task: any) => {
+      console.log(task);
+
+      //pegar data de inicio , caso true setar task no estado
+      // verificar se data de inicio é menor que ou iqual a data atual
+      //pegar data final
+      //verificar se data final é maior ou igual data atual , caso true setar task no estado
+
+      //tratar data separando ano, mês e dia e realizar comparações
+
+      
+    });
+    
+    console.log(date);
+    
+  }
+
+  compareTodayData()
 
   return (
     <div className="flex flex-col gap-2 h-80 mt-24">
       {props.tasks.map((task: any, index: number) => (
-        <div key={index} className="flex flex-col items-center justify-between shadow-tg w-84 h-20 bg-primary rounded-lg p-2">
+        <div
+          key={index}
+          className="flex flex-col items-center justify-between shadow-tg w-84 h-20 bg-primary rounded-lg p-2"
+        >
           <div className="flex w-full justify-between items-center h-6 ">
-            <Checkbox className='w-5 h-5 bg-secondary/50 border-secondary border-2'/>
-            <div className="pl-8 text-secondary font-semibold text-sm">00 : 00 : 00</div>
+            <Checkbox className="w-5 h-5 bg-secondary/50 border-secondary border-2" />
+            <div className="pl-10 text-secondary font-semibold text-sm">
+              {task.type === 'timer' ? 'Timer' : convertSecondstoTime(task.currentTime)}
+            </div>
             <Link href={'/task'} data-testid="startTaskToday">
               <Button className="h-6 w-12 ml-4 bg-secondary hover-bg-secondary/80 shadow-tg">
                 <Play size={16} />
@@ -26,7 +68,7 @@ export default function TasksTodayList(props: any) {
             </Link>
           </div>
           <div className="flex w-full items-center justify-center p-1">
-            <p className='font-semibold text-sm'>{task.description}</p>
+            <p className="font-semibold text-sm">{task.description}</p>
           </div>
         </div>
       ))}

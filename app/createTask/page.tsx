@@ -130,7 +130,7 @@ export default function CreateTask() {
 
   const taskData: Itask = {
     description: descriptionTask,
-    currentTime: 0,
+    currentTime: timeStopwatch,
     days: daysSelected,
     finish: currentEndDate,
     start: currentStartDate,
