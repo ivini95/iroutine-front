@@ -31,6 +31,7 @@ export default function Login() {
         body: JSON.stringify({ name, password }),
       });
       var data = await res.json();
+      
       if (!res.ok) {
         setAlert(true);
         if (typeof data.message == 'string') {
